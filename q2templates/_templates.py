@@ -25,7 +25,7 @@ def render(source_dir, output_dir, style=None, context={}):
     env = Environment(loader=FileSystemLoader(temp_dir.name))
     template = env.get_template('index.html')
 
-    copy_assets(temp_dir.name, output_dir, filter='index.html')
+    copy_assets(temp_dir.name, output_dir, skip='base.html')
 
     rendered_content = template.render(**context)
     with open(os.path.join(output_dir, 'index.html'), "w") as fh:
