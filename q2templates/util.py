@@ -23,3 +23,9 @@ def copy_assets(source_dir, output_dir, skip=None):
             shutil.copytree(src, dest)
         else:
             shutil.copy2(src, dest)
+
+
+def get_iterable(src):
+    if isinstance(src, str):
+        return (src,)
+    return src
