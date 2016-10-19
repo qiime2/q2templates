@@ -15,7 +15,12 @@ from .util import copy_assets, get_iterable
 from jinja2 import Environment, FileSystemLoader
 
 
-def render(source_files, output_dir, styles="base.html", context={}):
+def render(source_files, output_dir, styles=None, context=None):
+    if context is None:
+        context = {}
+    if styles is None:
+        styles = "base.html"
+
     # TODO: Hook into qiime.sdk.config.TemporaryDirectory() when it exists
     temp_dir = tempfile.TemporaryDirectory()
     template_data = pkg_resources.resource_filename('q2templates', 'templates')
