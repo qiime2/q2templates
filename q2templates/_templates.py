@@ -30,7 +30,8 @@ def render(source_files, output_dir, styles=None, context=None):
         The necessary QIIME 2 templates that are used to render the
         source_files.
     context : dict, optional
-        The context dictionary to be rendered into the source_files.
+        The context dictionary to be rendered into the source_files. The
+        same context will be provided to all templates being rendered.
 
     """
     # TODO: Hook into qiime.sdk.config.TemporaryDirectory() when it exists
