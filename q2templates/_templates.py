@@ -6,6 +6,7 @@
 # The full license is in the file COPYING.txt, distributed with this software.
 # ----------------------------------------------------------------------------
 
+import inspect
 import os
 import pkg_resources
 import shutil
@@ -48,6 +49,12 @@ def render(source_files, output_dir, styles=None, context=None):
 
     if context is None:
         context = {}
+    # Grab the plugin and visualizer method name for default titles
+    stack = inspect.stack()
+    plugin = inspect.getmodule(stack[1][0]).__name__.split('.')[0]
+    method = inspect.getouterframes(stack[0][0], 2)[1][3]
+    context['q2templates_default_page_title'] = '%s : %s' % (plugin, method)
+
     # Copy user files to the environment for rendering to the output_dir
     for path in get_iterable(source_files):
         shutil.copy2(path, temp_dir.name)
