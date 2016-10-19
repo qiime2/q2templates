@@ -13,6 +13,10 @@ import shutil
 def copy_assets(source_dir, output_dir):
     # Copy into existing dir: http://stackoverflow.com/a/12514470/4760331
     for item in os.listdir(source_dir):
+        # Ignore dotfiles
+        if item.startswith('.'):
+            continue
+
         src = os.path.join(source_dir, item)
         dest = os.path.join(output_dir, item)
 

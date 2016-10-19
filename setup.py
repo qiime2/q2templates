@@ -14,6 +14,13 @@ setup(
     name="q2templates",
     version=q2templates.__version__,
     license='BSD-3-Clause',
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
+    package_data={
+        'q2templates': [
+            'templates/*.html',
+            'templates/assets/css/*.css',
+            'templates/assets/img/*.png'
+        ]
+    },
     install_requires=['jinja2']
 )
