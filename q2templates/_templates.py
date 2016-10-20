@@ -52,7 +52,7 @@ def render(source_files, output_dir, styles=None, context=None):
     # Grab the plugin and visualizer method name for default titles
     stack = inspect.stack()
     plugin = inspect.getmodule(stack[1][0]).__name__.split('.')[0]
-    method = inspect.getouterframes(stack[0][0], 2)[1][3]
+    method = stack[1][3]
     context['q2templates_default_page_title'] = '%s : %s' % (plugin, method)
 
     # Copy user files to the environment for rendering to the output_dir
