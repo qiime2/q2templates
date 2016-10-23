@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block title %}{{ q2templates_default_page_title }}{% endblock %}</title>
     <link rel="stylesheet" href="./q2templateassets/css/bootstrap.min.css"/>
-    <style type="text/css">
-      body {
-        padding-left: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="./q2templateassets/css/normalize.css"/>
     {% block head %}
     {% endblock %}
   </head>
@@ -24,10 +20,8 @@
           </a>
         </div>
       </div>
-      <div class="row">
         {% block content %}
         {% endblock %}
-      </div>
     </div>
   </body>
 </html>
