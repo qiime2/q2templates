@@ -28,7 +28,8 @@ setup(
         'q2templates': [
             'templates/*.html',
             'templates/assets/css/*.css',
-            'templates/assets/img/*.png'
+            'templates/assets/img/*.png',
+            'templates/assets/fonts/glyphicons-*'
         ]
     },
     install_requires=['jinja2']
