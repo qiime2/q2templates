@@ -8,6 +8,6 @@
 
 from ._templates import render
 
-__version__ = '0.0.6'
+__version__ = '0.0.6.dev'
 
 __all__ = ['render']
