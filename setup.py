@@ -1,28 +1,18 @@
 # ----------------------------------------------------------------------------
-# Copyright (c) 2016--, QIIME development team.
+# Copyright (c) 2016-2017, QIIME 2 development team.
 #
 # Distributed under the terms of the Modified BSD License.
 #
-# The full license is in the file COPYING.txt, distributed with this software.
+# The full license is in the file LICENSE, distributed with this software.
 # ----------------------------------------------------------------------------
-
-import re
-import ast
 
 from setuptools import setup, find_packages
 
-# version parsing from __init__ pulled from Flask's setup.py
-# https://github.com/mitsuhiko/flask/blob/master/setup.py
-_version_re = re.compile(r'__version__\s+=\s+(.*)')
-
-with open('q2templates/__init__.py', 'rb') as f:
-    hit = _version_re.search(f.read().decode('utf-8')).group(1)
-    version = str(ast.literal_eval(hit))
-
 setup(
     name="q2templates",
-    version=version,
+    version='2017.2.0.dev0',
     license='BSD-3-Clause',
+    url='https://qiime2.org',
     packages=find_packages(exclude=['tests']),
     package_data={
         'q2templates': [
