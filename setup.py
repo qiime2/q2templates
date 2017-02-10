@@ -13,11 +13,12 @@ setup(
     version='2017.2.0.dev0',
     license='BSD-3-Clause',
     url='https://qiime2.org',
-    packages=find_packages(exclude=['tests']),
+    packages=find_packages(),
     package_data={
         'q2templates': [
             'templates/*.html',
             'templates/assets/css/*.css',
+            'templates/assets/js/*.js',
             'templates/assets/img/*.png',
             'templates/assets/fonts/glyphicons-*'
         ]

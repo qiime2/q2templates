@@ -13,10 +13,10 @@ import shutil
 import tempfile
 
 from .util import copy_assets, get_iterable
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, meta
 
 
-def render(source_files, output_dir, styles=None, context=None):
+def render(source_files, output_dir, context=None):
     """Render user provided source files into a QIIME 2 visualization template.
 
 
@@ -27,25 +27,25 @@ def render(source_files, output_dir, styles=None, context=None):
     output_dir : str
         The output_dir provided to a visualiation function by the QIIME 2
         framework.
-    styles : str or list of str, optional
-        The necessary QIIME 2 templates that are used to render the
-        source_files.
     context : dict, optional
         The context dictionary to be rendered into the source_files. The
         same context will be provided to all templates being rendered.
 
     """
+    src = get_iterable(source_files)
     # TODO: Hook into qiime.sdk.config.TemporaryDirectory() when it exists
     temp_dir = tempfile.TemporaryDirectory()
     template_data = pkg_resources.resource_filename('q2templates', 'templates')
     env = Environment(loader=FileSystemLoader(temp_dir.name), auto_reload=True)
 
-    if styles is None:
-        styles = "base.html"
-    # Allow for the possibility of multiple style templates to choose from
-    for style in get_iterable(styles):
-        q2template = os.path.join(template_data, style)
-        shutil.copy2(q2template, temp_dir.name)
+    # Find all referenced stylesheets and move them to the tempdir
+    for source_file in src:
+        with open(source_file, 'r') as fh:
+            ast = env.parse(fh.read())
+            template = list(meta.find_referenced_templates(ast))[0]
+        if template not in os.listdir(temp_dir.name):
+            q2template = os.path.join(template_data, template)
+            shutil.copy2(q2template, temp_dir.name)
 
     if context is None:
         context = {}
@@ -59,9 +59,9 @@ def render(source_files, output_dir, styles=None, context=None):
     context['q2templates_default_page_title'] = '%s : %s' % (plugin, method)
 
     # Copy user files to the environment for rendering to the output_dir
-    for path in get_iterable(source_files):
-        shutil.copy2(path, temp_dir.name)
-        filename = os.path.split(path)[1]
+    for source_file in src:
+        shutil.copy2(source_file, temp_dir.name)
+        filename = os.path.basename(source_file)
         template = env.get_template(filename)
         rendered_content = template.render(**context)
         with open(os.path.join(output_dir, filename), "w") as fh:
