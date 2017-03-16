@@ -1,0 +1,31 @@
+# TODO review meta.yml spec and fill in missing fields as necessary (e.g. build number).
+package:
+  name: q2templates
+  version: "2017.3.0.dev0"
+
+source:
+  path: ../..
+
+build:
+  noarch: python
+  script: python setup.py install
+
+requirements:
+  build:
+    - python 3.5*
+    - setuptools
+    - jinja2
+
+  run:
+    - python 3.5*
+    - setuptools
+    - jinja2
+
+test:
+  imports:
+    - q2templates
+
+about:
+  home: https://qiime2.org
+  license: BSD-3-Clause
+  license_family: BSD
