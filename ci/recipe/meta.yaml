@@ -1,7 +1,9 @@
+{% set data = load_setup_py_data() %}
+
 # TODO review meta.yml spec and fill in missing fields as necessary (e.g. build number).
 package:
   name: q2templates
-  version: "2017.3.0.dev0"
+  version: {{ data.get('version') }}
 
 source:
   path: ../..

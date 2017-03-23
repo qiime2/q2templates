@@ -7,10 +7,12 @@
 # ----------------------------------------------------------------------------
 
 from setuptools import setup, find_packages
+import versioneer
 
 setup(
     name="q2templates",
-    version='2017.3.0.dev',
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     license='BSD-3-Clause',
     url='https://qiime2.org',
     packages=find_packages(),
