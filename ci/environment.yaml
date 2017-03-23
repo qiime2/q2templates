@@ -1,8 +1,0 @@
-channels:
-  - defaults
-  - nodefaults
-
-dependencies:
-  - python=3.5*
-  - setuptools
-  - jinja2
