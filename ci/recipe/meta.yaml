@@ -9,7 +9,6 @@ source:
   path: ../..
 
 build:
-  noarch: python
   script: python setup.py install
 
 requirements:
