@@ -25,6 +25,5 @@ setup(
             'templates/assets/fonts/glyphicons-*'
         ]
     },
-    install_requires=['jinja2'],
     zip_safe=False,
 )

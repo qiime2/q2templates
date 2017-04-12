@@ -1,9 +1,10 @@
 {% set data = load_setup_py_data() %}
+{% set version = data.get('version') %}
 
 # TODO review meta.yml spec and fill in missing fields as necessary (e.g. build number).
 package:
   name: q2templates
-  version: {{ data.get('version') }}
+  version: {{ version }}
 
 source:
   path: ../..
@@ -15,7 +16,6 @@ requirements:
   build:
     - python 3.5*
     - setuptools
-    - jinja2
 
   run:
     - python 3.5*
