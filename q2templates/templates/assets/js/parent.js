@@ -17,7 +17,7 @@ function toggleClass() {
     document.querySelector('.active').className = '';
     this.className = 'active';
     frame.height = '0px';
-    frame.src = frameSrc[this.id];
+    frame.contentWindow.location.replace(frameSrc[this.id]);
   }
 }
 
