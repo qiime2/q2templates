@@ -6,11 +6,11 @@
 # The full license is in the file LICENSE, distributed with this software.
 # ----------------------------------------------------------------------------
 
-import pkg_resources
-
 from ._templates import render
+from ._version import get_versions
 
 
-__version__ = pkg_resources.get_distribution('q2templates').version
+__version__ = get_versions()['version']
+del get_versions
 
 __all__ = ['render']
