@@ -8,10 +8,16 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
+  if (document.body.scrollHeight !== document.documentElement.scrollHeight) {
+    scrollHeight = document.documentElement.scrollHeight
+  } else {
+    scrollHeight = document.body.scrollHeight
+  }
   var height = Math.max(
-    Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
+    scrollHeight,
     Math.max(document.body.offsetHeight, document.documentElement.offsetHeight),
     Math.max(document.body.clientHeight, document.documentElement.clientHeight)
   );
+  var height = document.documentElement.scrollHeight
   parent.postMessage(height, '*');
 });
