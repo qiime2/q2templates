@@ -1,4 +1,4 @@
-.PHONY: all lint test test-cov install dev clean distclean
+.PHONY: all lint test install dev clean distclean
 
 all: ;
 
@@ -7,8 +7,7 @@ lint:
 	flake8
 
 test: all
-
-test-cov: all
+	py.test
 
 install: all
 	python setup.py install
