@@ -15,7 +15,7 @@
                    these messages):</p>';
     var helpMsgDiv = $('<div></div>');
     helpMsgDiv.append(helpMsg);
-    helpMsgDiv.append('<pre><code>' + errors.join('\n\n//----\n\n') + '</code></pre>');
+    helpMsgDiv.append('<pre><code>' + errors.join('\n\n') + '</code></pre>');
     element.replaceWith(helpMsgDiv);
   }
   window.onerror = function(error) {
