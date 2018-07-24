@@ -42,10 +42,10 @@ def render(source_files, output_dir, context=None):
     for source_file in src:
         with open(source_file, 'r') as fh:
             ast = env.parse(fh.read())
-            template = list(meta.find_referenced_templates(ast))[0]
-        if template not in os.listdir(temp_dir.name):
-            q2template = os.path.join(template_data, template)
-            shutil.copy2(q2template, temp_dir.name)
+        for template in list(meta.find_referenced_templates(ast)):
+            if template not in os.listdir(temp_dir.name):
+                shutil.copy2(os.path.join(template_data, template),
+                             temp_dir.name)
 
     if context is None:
         context = {}
