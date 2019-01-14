@@ -1,5 +1,7 @@
 .PHONY: all lint test install dev clean distclean
 
+PYTHON ?= python
+
 all: ;
 
 lint:
@@ -10,7 +12,7 @@ test: all
 	py.test
 
 install: all
-	python setup.py install
+	$(PYTHON) setup.py install
 
 dev: all
 	pip install -e .
