@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if tabs is defined %}
+  <div class="row">
+    <div class="col-lg-12">
+      <ul class="nav nav-tabs">
+        {% for tab in tabs %}
+          <li class="{% if self._TemplateReference__context.name == tab.url %}active{% endif %}">
+            <a href="{{ tab.url }}">
+              {{ tab.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      {% block tabcontent %}{% endblock %}
+    </div>
+  </div>
+{% else %}
+  <p class="alert alert-danger">
+    Plugin development error - specifed the <code>tabbed.html</code> template,
+    but did not specify <code>tabs</code> context variable.
+  </p>
+{% endif %}
+{% endblock %}

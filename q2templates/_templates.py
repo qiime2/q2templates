@@ -38,7 +38,8 @@ def render(source_files, output_dir, context=None):
     template_data = pkg_resources.resource_filename('q2templates', 'templates')
     env = Environment(loader=FileSystemLoader(temp_dir.name), auto_reload=True)
 
-    # Find all referenced stylesheets and move them to the tempdir
+    shutil.copy2(os.path.join(template_data, 'base.html'), temp_dir.name)
+
     for source_file in src:
         with open(source_file, 'r') as fh:
             ast = env.parse(fh.read())
