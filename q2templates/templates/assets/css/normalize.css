@@ -55,25 +55,6 @@ h1 {
    ========================================================================== */
 
 /**
-* Center table heads in each column and related text in table.
-* Center table in page with reduced size.
-*/
-   
-div.text-center {
-  margin-left: 10%;
-  justify-content: center;
-  width: 80%;
-}
-
-.col-lg-12 td {
-  text-align: center;
-}
-
-thead th {
-  text-align: center;
-}
-
-/**
  * Add the correct display in IE 9-.
  * 1. Add the correct display in IE.
  */
