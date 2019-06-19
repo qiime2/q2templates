@@ -13,11 +13,6 @@ The full license is in the file LICENSE, distributed with this software.
  * 2. Center the data cells and table headers.
  */
 
-/**
-* Center table heads in each column and related text in table.
-* Center table in page with reduced size.
-*/
-  
 table.dataframe thead th, table.dataframe td{
   text-align: center;
 }
