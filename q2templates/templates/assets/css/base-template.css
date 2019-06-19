@@ -8,11 +8,6 @@ The full license is in the file LICENSE, distributed with this software.
 ----------------------------------------------------------------------------
 */
 
-/**
- * 1. Change the width and margin values for table populated in base.html.
- * 2. Center the data cells and table headers.
- */
-
 table.dataframe thead th, table.dataframe td{
   text-align: center;
 }
