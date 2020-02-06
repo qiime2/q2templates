@@ -42,13 +42,8 @@ def df_to_html(df, border=0, classes=('table', 'table-striped', 'table-hover'),
     .. [2] https://github.com/pandas-dev/pandas/issues/1852
 
     """
-    try:
-        with pd.option_context('display.max_colwidth', -1):
-            return df.to_html(border=border, classes=classes, **kwargs)
-    except ValueError:
-        # Supports pandas API changes starting in 1.0
-        with pd.option_context('display.max_colwidth', None):
-            return df.to_html(border=border, classes=classes, **kwargs)
+    with pd.option_context('display.max_colwidth', None):
+        return df.to_html(border=border, classes=classes, **kwargs)
 
 
 def copy_assets(source_dir, output_dir):
