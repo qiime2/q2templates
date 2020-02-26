@@ -42,7 +42,7 @@ def df_to_html(df, border=0, classes=('table', 'table-striped', 'table-hover'),
     .. [2] https://github.com/pandas-dev/pandas/issues/1852
 
     """
-    with pd.option_context('display.max_colwidth', None):
+    with pd.option_context('display.max_colwidth', -1):
         return df.to_html(border=border, classes=classes, **kwargs)
 
 
