@@ -1,2 +1,6 @@
 # q2templates
-Design template package for QIIME 2 Plugins
+
+![](https://github.com/qiime2/q2templates/workflows/ci/badge.svg)
+
+HTML templates for QIIME 2 Visualizations. For details on QIIME 2, see
+https://qiime2.org.
