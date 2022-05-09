@@ -21,7 +21,7 @@ requirements:
     - python {{ python }}
     - setuptools
     - jinja2
-    - pandas >=1
+    - pandas {{ pandas }}
 
 test:
   requires:
