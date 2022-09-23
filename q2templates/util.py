@@ -12,8 +12,9 @@ import shutil
 import pandas as pd
 
 
-def df_to_html(df, border=0, classes=('table', 'table-striped', 'table-hover'),
-               **kwargs):
+def df_to_html(df, border="0", classes=('table', 'table-striped',
+                                        'table-hover'), **kwargs):
+
     """Convert a dataframe to HTML without truncating contents.
 
     pandas will truncate cell contents that exceed 50 characters by default.
