@@ -24,6 +24,9 @@ requirements:
     - pandas {{ pandas }}
 
 test:
+  commands:
+    - py.test --pyargs q2templates
+    
   requires:
     - pytest
 
