@@ -24,14 +24,14 @@ requirements:
     - pandas {{ pandas }}
 
 test:
-  commands:
-    - py.test --pyargs q2templates
-    
   requires:
     - pytest
 
   imports:
     - q2templates
+
+  commands:
+    - py.test --pyargs q2templates
 
 about:
   home: https://qiime2.org
