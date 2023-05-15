@@ -27,6 +27,9 @@ test:
   requires:
     - pytest
 
+  imports:
+    - q2templates
+
   commands:
     - py.test --pyargs q2templates
 
