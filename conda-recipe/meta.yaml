@@ -1,0 +1,32 @@
+package:
+  name: q2templates
+  version: {{ PLUGIN_VERSION }}
+source:
+  path: ..
+build:
+  script: make install
+requirements:
+  host:
+  - python {{ python }}
+  - setuptools
+  - versioningit
+  - wheel
+  run:
+  - python {{ python }}
+  - setuptools
+  - jinja2
+  - pandas {{ pandas }}
+  build:
+  - setuptools
+  - versioningit
+test:
+  requires:
+  - pytest
+  imports:
+  - q2templates
+  commands:
+  - py.test --pyargs q2templates
+about:
+  home: https://qiime2.org
+  license: BSD-3-Clause
+  license_family: BSD
