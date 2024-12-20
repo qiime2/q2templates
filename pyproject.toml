@@ -12,9 +12,6 @@ dynamic = ["version"]
 Homepage = "https://qiime2.org"
 Repository = "https://github.com/qiime2/q2templates"
 
-[project.entry-points.'qiime2.plugins']
-"q2templates" = "q2templates.plugin_setup:plugin"
-
 [build-system]
 requires = [
     "setuptools",
