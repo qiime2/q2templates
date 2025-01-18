@@ -17,6 +17,7 @@ requirements:
   - jinja2
   - pandas {{ pandas }}
   build:
+  - python {{ python }}
   - setuptools
   - versioningit
 test:
