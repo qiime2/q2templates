@@ -35,7 +35,7 @@ def render(source_files, output_dir, context=None):
     src = get_iterable(source_files)
     # TODO: Hook into qiime.sdk.config.TemporaryDirectory() when it exists
     temp_dir = tempfile.TemporaryDirectory()
-    template_data = importlib.resources.open_text('q2templates', 'templates')
+    template_data = importlib.resources.files('q2templates') / 'templates'
     env = Environment(loader=FileSystemLoader(temp_dir.name), auto_reload=True)
 
     shutil.copy2(os.path.join(template_data, 'base.html'), temp_dir.name)
