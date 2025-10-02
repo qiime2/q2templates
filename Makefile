@@ -11,12 +11,21 @@ lint:
 test: all
 	py.test
 
-install: all
+build-matryoshka: all distclean
+	npm install --prefix reports/matryoshka
+	npm run build --prefix reports/matryoshka
+	mkdir -p q2templates/reports/built_assets/matryoshka
+	cp -r reports/matryoshka/build/* q2templates/reports/built_assets/matryoshka
+
+build-reports: build-matryoshka ;
+
+install: all build-reports
 	$(PYTHON) -m pip install -v .
 
-dev: all
+dev: all build-reports
 	pip install -e .
 
 clean: distclean
 
 distclean: ;
+	rm -rf q2templates/reports/built_assets/*

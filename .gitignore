@@ -69,3 +69,5 @@ target/
 # Version file from versioningit
 _version.py
 
+# Generated JS
+q2templates/reports/built_assets/
